@@ -41,14 +41,6 @@ class TestFileStorage(unittest.TestCase):
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 20)
 
-    """def test_pep8(self):
-        \"""
-        Tests for PEP-8
-        \"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(["models/base_model.py"])
-        self.assertEqual(result.total_errors, 0)"""
-
     def test_docstring_for_test(self):
         """
         Tests docstring for this test
