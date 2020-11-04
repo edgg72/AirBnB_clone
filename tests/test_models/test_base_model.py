@@ -40,7 +40,7 @@ class TestBaseModel(unittest.TestCase):
         """
         Tests docstring for this test
         """
-        self.assertTrue(len(__doc__) > 20)
+        self.assertTrue(len(__doc__) > 0)
 
     def test_docstring_class_test(self):
         """
