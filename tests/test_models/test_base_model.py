@@ -56,14 +56,6 @@ class TestBaseModel(unittest.TestCase):
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 0)
 
-    """def test_pep8(self):
-        \"""
-        Tests for PEP-8
-        \"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(["models/base_model.py"])
-        self.assertEqual(result.total_errors, 0)"""
-
     def test_base_init(self):
         """
         Testing a class BaseModel
@@ -77,15 +69,6 @@ class TestBaseModel(unittest.TestCase):
         instance.my_number = 89
         self.assertEqual(instance.name, "Holberton")
         self.assertEqual(instance.my_number, 89)
-        """
-        at_class = {
-            "id": str,
-            "created_at": datetime
-            "updated_at": datetime
-            "name": str
-            "my_number": int
-        }
-        """
 
     def test_none(self):
         """Check if a new instance is not none"""
