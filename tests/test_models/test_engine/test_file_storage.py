@@ -3,7 +3,6 @@
 Unitest class File_Storage
 """
 import unittest
-"""import pep8"""
 import json
 import os.path
 from models.engine.file_storage import FileStorage, __doc__ as mrdoc

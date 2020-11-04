@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Test User"""
 import unittest
-"""import pep8"""
 from models.base_model import BaseModel
 from models.user import User
 

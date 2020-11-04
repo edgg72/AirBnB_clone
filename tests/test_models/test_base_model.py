@@ -5,7 +5,6 @@ Unitest Class BaseModel
 import unittest
 from models.base_model import BaseModel, __doc__ as mrdoc
 import inspect
-"""import pep8"""
 import models
 from datetime import datetime as datetime
 
