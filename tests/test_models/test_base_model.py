@@ -17,13 +17,13 @@ class TestBaseModel(unittest.TestCase):
         """
         Tests docstring for module
         """
-        self.assertTrue(len(mrdoc) > 0)
+        self.assertTrue(len(mrdoc) > 20)
 
     def test_class_docstring(self):
         """
         Tests docstring for class
         """
-        self.assertTrue(len(BaseModel.__doc__) > 0)
+        self.assertTrue(len(BaseModel.__doc__) > 20)
 
     def test_methods_docstring(self):
         """
@@ -31,22 +31,19 @@ class TestBaseModel(unittest.TestCase):
         """
         methods = inspect.getmembers(BaseModel, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 0)
-        methods = inspect.getmembers(BaseModel, predicate=inspect.isfunction)
-        for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 0)
+            self.assertTrue(len(func.__doc__) > 20)
 
     def test_docstring_for_test(self):
         """
         Tests docstring for this test
         """
-        self.assertTrue(len(__doc__) > 0)
+        self.assertTrue(len(__doc__) > 20)
 
     def test_docstring_class_test(self):
         """
         Tests dosctring for class TestBaseModel
         """
-        self.assertTrue(len(TestBaseModel.__doc__) > 0)
+        self.assertTrue(len(TestBaseModel.__doc__) > 20)
 
     def test_docstring_methods(self):
         """
@@ -54,7 +51,7 @@ class TestBaseModel(unittest.TestCase):
         """
         methods = inspect.getmembers(TestBaseModel, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 0)
+            self.assertTrue(len(func.__doc__) > 20)
 
     def test_base_init(self):
         """
@@ -69,6 +66,15 @@ class TestBaseModel(unittest.TestCase):
         instance.my_number = 89
         self.assertEqual(instance.name, "Holberton")
         self.assertEqual(instance.my_number, 89)
+        """
+        at_class = {
+            "id": str,
+            "created_at": datetime
+            "updated_at": datetime
+            "name": str
+            "my_number": int
+        }
+        """
 
     def test_none(self):
         """Check if a new instance is not none"""
