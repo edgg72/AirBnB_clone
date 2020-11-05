@@ -13,7 +13,9 @@ from models.review import Review
 
 
 class Testamenity(unittest.TestCase):
-
+    """
+    test for amenity
+    """
     def test_pep8_conformance_amenity(self):
         """
         Test that we conform to PEP8
@@ -23,10 +25,16 @@ class Testamenity(unittest.TestCase):
         self.assertEqual(result.total_errors, 0, "Found style errors")
 
     def test_class(self):
+        """
+        Test attributes of Class Amenity
+        """
         amenity1 = Amenity()
         self.assertEqual(amenity1.__class__.__name__, "Amenity")
 
     def test_father(self):
+        """
+        Test attributes of Class Amenity
+        """
         amenity1 = Amenity()
         self.assertTrue(issubclass(amenity1.__class__, BaseModel))
 
