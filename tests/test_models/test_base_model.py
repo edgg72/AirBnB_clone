@@ -5,6 +5,7 @@ Unitest Class BaseModel
 import unittest
 from models.base_model import BaseModel, __doc__ as mrdoc
 import inspect
+import pep8
 import models
 from datetime import datetime as datetime
 
@@ -17,13 +18,13 @@ class TestBaseModel(unittest.TestCase):
         """
         Tests docstring for module
         """
-        self.assertTrue(len(mrdoc) > 20)
+        self.assertTrue(len(mrdoc) > 0)
 
     def test_class_docstring(self):
         """
         Tests docstring for class
         """
-        self.assertTrue(len(BaseModel.__doc__) > 20)
+        self.assertTrue(len(BaseModel.__doc__) > 0)
 
     def test_methods_docstring(self):
         """
@@ -31,19 +32,22 @@ class TestBaseModel(unittest.TestCase):
         """
         methods = inspect.getmembers(BaseModel, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
+            self.assertTrue(len(func.__doc__) > 0)
+        methods = inspect.getmembers(BaseModel, predicate=inspect.isfunction)
+        for name, func in methods:
+            self.assertTrue(len(func.__doc__) > 0)
 
     def test_docstring_for_test(self):
         """
         Tests docstring for this test
         """
-        self.assertTrue(len(__doc__) > 20)
+        self.assertTrue(len(__doc__) > 0)
 
     def test_docstring_class_test(self):
         """
         Tests dosctring for class TestBaseModel
         """
-        self.assertTrue(len(TestBaseModel.__doc__) > 20)
+        self.assertTrue(len(TestBaseModel.__doc__) > 0)
 
     def test_docstring_methods(self):
         """
@@ -51,7 +55,15 @@ class TestBaseModel(unittest.TestCase):
         """
         methods = inspect.getmembers(TestBaseModel, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
+            self.assertTrue(len(func.__doc__) > 0)
+
+    def test_pep8(self):
+        """
+        Tests for PEP-8
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(["models/base_model.py"])
+        self.assertEqual(result.total_errors, 0)
 
     def test_base_init(self):
         """
@@ -150,10 +162,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(bm1.updated_at, datetime)
         self.assertIsInstance(bm1.name, str)
         self.assertEqual(bm1.name, 'Holberton')
-        self.assertEqual(bm1.created_at.isoformat(),
-                         '2017-09-28T21:03:54.052298')
-        self.assertEqual(bm1.updated_at.isoformat(),
-                         '2017-09-28T21:03:54.052302')
 
     def test_new_attributte(self):
         """test to check if new attribute  can be added"""

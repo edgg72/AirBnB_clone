@@ -29,7 +29,7 @@ class TestFileStorage(unittest.TestCase):
         """
         Tests docstring for module
         """
-        self.assertTrue(len(mrdoc) > 20)
+        self.assertTrue(len(mrdoc) > 10)
 
     def test_methods_docstring(self):
         """
@@ -37,10 +37,10 @@ class TestFileStorage(unittest.TestCase):
         """
         methods = inspect.getmembers(FileStorage, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
+            self.assertTrue(len(func.__doc__) > 10)
         methods = inspect.getmembers(FileStorage, predicate=inspect.isfunction)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
+            self.assertTrue(len(func.__doc__) > 10)
 
     def test_pep8(self):
         """
@@ -54,13 +54,13 @@ class TestFileStorage(unittest.TestCase):
         """
         Tests docstring for this test
         """
-        self.assertTrue(len(__doc__) > 20)
+        self.assertTrue(len(__doc__) > 10)
 
     def test_docstring_class_test(self):
         """
         Tests dosctring for class TestBaseModel
         """
-        self.assertTrue(len(TestFileStorage.__doc__) > 20)
+        self.assertTrue(len(TestFileStorage.__doc__) > 10)
 
     def test_docstring_methods(self):
         """
@@ -69,7 +69,7 @@ class TestFileStorage(unittest.TestCase):
         methods = inspect.getmembers(
             TestFileStorage, predicate=inspect.ismethod)
         for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
+            self.assertTrue(len(func.__doc__) > 10)
 
     def test_storage_isinstance(self):
         """
