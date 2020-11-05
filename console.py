@@ -202,24 +202,19 @@ class HBNBCommand(cmd.Cmd):
                 line += (aux[1].replace(",", "")).replace('"', "")[7:-1]
                 self.do_update(line)
             elif (aux[1])[:6] == "update" and (aux[1]).find(":") > -1:
-                id_aux = (aux[1])[8:44]
-                """new_line = (aux[1])[46:-1]
-                new_line = new_line.replace("'", "").replace('"', "")
-                new_line = new_line.replace("{", "").replace("}", "")
-                new_line = new_line.split(",")
-                my_list = []
-                for element in new_line:
-                    my_list.append(element.split(":"))
-                for i in range(len(my_list)):
-                    line = aux[0] + " "
-                    line += id_aux + my_list[i][0] + my_list[i][1]
-                    self.do_update(line)"""
-                aux_dic = json.loads(((aux[1])[47:-1]).replace("'", '"'))
-                for key, value in aux_dic.items():
-                    if value:
-                        line = aux[0] + " "
-                        line += id_aux + " " + key + " " + str(value)
-                        self.do_update(line)
+                try:
+                    objects = storage.all()
+                    id_aux = (aux[1])[8:44]
+                    if aux[0] + "." + id_aux not in objects:
+                        raise KeyError()
+                    aux_dic = json.loads(((aux[1])[47:-1]).replace("'", '"'))
+                    for key, value in aux_dic.items():
+                        if value:
+                            line = aux[0] + " "
+                            line += id_aux + " " + key + " " + str(value)
+                            self.do_update(line)
+                except KeyError:
+                    print("** no instance found **")
                 return
 
     def do_count(self, line):
